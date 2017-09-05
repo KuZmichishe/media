@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'films.apps.FilmsConfig',
+    'cron_jobs.apps.CronJobsConfig',
     #'tvshows.apps.TvshowsVonfig',
     'django_cron',
 ]
@@ -125,3 +126,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+MEDIA_ROOT = '/multimedia/'
+MEDIA_EXTENSIONS = [
+    '.avi',
+    '.mkv',
+    '.mp4',
+]
+
+DOWNLOADS_ROOT = MEDIA_ROOT + 'downloads/'
+FILMS_ROOT = MEDIA_ROOT + 'films/'
+SHOWS_ROOT = MEDIA_ROOT + 'shows/'
+
+MOVIEDB_API_KEY = '28b0dc51e842986de2722b5e49a34d84'
