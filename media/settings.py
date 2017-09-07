@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'films.apps.FilmsConfig',
     'cron_jobs.apps.CronJobsConfig',
-    #'tvshows.apps.TvshowsVonfig',
+# 'tvshows.apps.TvshowsConfig',
     'django_cron',
 ]
 
@@ -128,7 +128,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-
 MEDIA_ROOT = '/multimedia/'
 MEDIA_EXTENSIONS = [
     '.avi',
@@ -139,5 +138,12 @@ MEDIA_EXTENSIONS = [
 DOWNLOADS_ROOT = MEDIA_ROOT + 'downloads/'
 FILMS_ROOT = MEDIA_ROOT + 'films/'
 SHOWS_ROOT = MEDIA_ROOT + 'shows/'
+NO_IMAGE_FAKE = 'http://colorexpert.co.th/wp-content/themes/maggie-lite/images/no-image-small.jpg'
 
+# MovieDB 3rd party service options
+
+MOVIEDB_DOMAIN = 'https://api.themoviedb.org/3/search/'
 MOVIEDB_API_KEY = '28b0dc51e842986de2722b5e49a34d84'
+MOVIEDB_POSTER_SIZE = '500'
+MOVIEDB_BACKGROUND_SIZE = '1280'
+MOVIEDB_IMAGE_PATH = 'https://image.tmdb.org/t/p/w'

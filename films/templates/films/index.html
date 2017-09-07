@@ -11,6 +11,9 @@
             {% for film in films %}
                 <div class="col-sm-4 col-lg-2">
                     <div class="thumbnail">
+                        <a href="{% url 'films:detail' film.id %}">
+                            <img src="{{ film.poster }}" class="img-responsive">
+                        </a>
                         <div class="caption">
                             <h2>{{ film.title }}</h2>
                             <h4>{{ film.genre }}</h4>
