@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-MEDIA_ROOT = '/multimedia/'
+MEDIA_ROOT = 'multimedia/'
 MEDIA_EXTENSIONS = [
     '.avi',
     '.mkv',

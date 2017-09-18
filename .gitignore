@@ -6,3 +6,6 @@
 ehthumbs.db
 Thumbs.db
 downloads
+multimedia/downloads/*
+multimedia/films/*
+multimedia/shows/*

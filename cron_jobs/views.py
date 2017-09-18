@@ -6,25 +6,43 @@ from django.conf import settings
 import helper as Cron
 from films.models import Film, Genre
 from datetime import datetime
+import os
 
 
-def index(request):
+def register_files(request):
     for item in Cron.files_to_array(settings.DOWNLOADS_ROOT):
         if item['type'] == 'movie':
             film = Film(
                 title=item['title'],
-                overview=item['overview'],
-                genre=Genre.objects.get(pk=item['genre']),
-                background=item['background'],
-                poster=item['poster'],
                 file_name=item['file_name'],
                 file_extension=item['file_extension'],
                 file_size=item['file_size'],
-                #first_air_date=datetime.strptime(item['first_air_date'], '%Y-%m-%d'),
-                movie_db_id=item['movie_db_id'],
             )
-            film.save()
-
+            try:
+                film.save()
+                os.rename(
+                    settings.DOWNLOADS_ROOT + item['file_name'],
+                    settings.FILMS_ROOT + item['file_name']
+                )
+            except Exception as e:
+                print e
     return JsonResponse({
-        'success': Cron.files_to_array(settings.DOWNLOADS_ROOT)
+        'success': True
     })
+
+
+def update_video_data(request):
+    films = Film.objects.filter(is_updated=0)
+    for film in films:
+        movie_data = Cron.get_movie_data(film.title, 'movie')
+        if movie_data:
+            info = movie_data[0]
+            film.background = info['backdrop_path']
+            film.poster = info['poster_path']
+            film.movie_db_id = info['id']
+            film.overview = info['overview']
+            film.genre = Genre.objects.get(pk=info['genre_ids'][0])
+            film.first_air_date = info['release_date']
+        film.is_updated = True
+        film.save()
+    return JsonResponse({'sucess': movie_data})

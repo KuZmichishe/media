@@ -12,11 +12,15 @@
                 <div class="col-sm-4 col-lg-2">
                     <div class="thumbnail">
                         <a href="{% url 'films:detail' film.id %}">
-                            <img src="{{ film.poster }}" class="img-responsive">
+                            {% if film.poster %}
+                                <img src="{{ poster_domain }}{{ film.poster }}" class="img-responsive">
+                            {% else %}
+                                <img src="{{ no_image }}" class="img-responsive">
+                            {% endif %}
                         </a>
                         <div class="caption">
-                            <h2>{{ film.title }}</h2>
-                            <h4>{{ film.genre }}</h4>
+                            <h3>{{ film.title }}</h3>
+                            <h5>{{ film.genre }}</h5>
 
                             <!-- View Details -->
                             <a href="{% url 'films:detail' film.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
