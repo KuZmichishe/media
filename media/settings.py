@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'films.apps.FilmsConfig',
     'cron_jobs.apps.CronJobsConfig',
-# 'tvshows.apps.TvshowsConfig',
+    'tvshows.apps.TvshowsConfig',
     'django_cron',
 ]
 
