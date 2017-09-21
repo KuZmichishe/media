@@ -1,4 +1,6 @@
 {% extends 'films/base.html' %}
+{% block films_active %}active{% endblock %}
+{% block title %}Films list{% endblock %}
 {% block body %}
 <div class="fims-container container-fluid">
 
@@ -23,7 +25,8 @@
                             <h5>{{ film.genre }}</h5>
 
                             <!-- View Details -->
-                            <a href="{% url 'films:detail' film.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+                            <a href="{% url 'films:detail' film.id %}" class="btn btn-primary btn-sm" role="button">View Detail</a>
+                            <a href="{% url 'films:detail' film.id %}" class="btn btn-danger btn-sm" role="button">Edit</a>
                         </div>
                     </div>
                 </div>
