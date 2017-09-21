@@ -2,5 +2,22 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.http import JsonResponse
 
-# Create your views here.
+
+def index(request):
+    return JsonResponse({
+        'success': True
+    })
+
+
+def show_detail(request):
+    return JsonResponse({
+        'success': True
+    })
+
+
+def season_detail(request):
+    return JsonResponse({
+        'success': True
+    })
