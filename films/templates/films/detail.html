@@ -1,0 +1,54 @@
+{% extends 'films/base.html' %}
+{% block films_active %}active{% endblock %}
+{% block title %}{{ film }}{% endblock %}
+{% block body %}
+<div class="fims-container container-fluid">
+    <div class="row">
+        <!-- Left column -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <img src="{{ poster_domain }}{{ film.poster }}" class="img-responsive" alt="Responsive image">
+                    <h1>{{ film.title }}</h1>
+                    <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                        <li role="presentation" class="active"><a href="{% url 'films:detail' film.id %}">View</a></li>
+                        <li role="presentation"><a href="{% url 'films:detail' film.id %}">Edit</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right column -->
+        <div class="col-sm-4 col-md-5">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <h3>Movie datail info</h3>
+                    <table class="table">
+                        <tr>
+                            <td class="float-right">Genre: </td>
+                            <td class="float-right">{{ film.genre }}</td>
+                        </tr>
+                        <tr>
+                            <td class="float-right">Date: </td>
+                            <td class="float-right">{{ film.first_air_date }}</td>
+                        </tr>
+                        <tr>
+                            <td class="float-right">Overview: </td>
+                            <td class="float-right">{{ film.overview }}</td>
+                        </tr>
+                        <tr>
+                            <td class="float-right">File name: </td>
+                            <td class="float-right">{{ film.file_name }}</td>
+                        </tr>
+                        <tr>
+                            <td class="float-right">File size: </td>
+                            <td class="float-right">{{ film.file_size }}</td>
+                        </tr>
+                    </table>
+                    <a href="{% url 'films:download' film.id %}" target="_blank" class="btn btn-danger btn-sm" role="button">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

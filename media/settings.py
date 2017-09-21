@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'films.apps.FilmsConfig',
-    #'tvshows.apps.TvshowsVonfig',
+    'cron_jobs.apps.CronJobsConfig',
+# 'tvshows.apps.TvshowsConfig',
     'django_cron',
 ]
 
@@ -125,4 +126,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+MEDIA_ROOT = 'multimedia/'
+MEDIA_EXTENSIONS = [
+    '.avi',
+    '.mkv',
+    '.mp4',
+]
+
+DOWNLOADS_ROOT = MEDIA_ROOT + 'downloads/'
+FILMS_ROOT = MEDIA_ROOT + 'films/'
+SHOWS_ROOT = MEDIA_ROOT + 'shows/'
+NO_IMAGE_FAKE = 'http://colorexpert.co.th/wp-content/themes/maggie-lite/images/no-image-small.jpg'
+
+# MovieDB 3rd party service options
+
+MOVIEDB_DOMAIN = 'https://api.themoviedb.org/3/search/'
+MOVIEDB_API_KEY = '28b0dc51e842986de2722b5e49a34d84'
+MOVIEDB_POSTER_SIZE = '500'
+MOVIEDB_BACKGROUND_SIZE = '1280'
+MOVIEDB_IMAGE_PATH = 'https://image.tmdb.org/t/p/w'
