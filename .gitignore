@@ -5,7 +5,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-*.pyc
+**/*.pyc
 multimedia/downloads/*
 multimedia/films/*
 multimedia/shows/*
