@@ -2,6 +2,10 @@ from media.settings.base import *
 
 DEBUG = False
 
+ALLOWED_HOSTS = [
+    'kuzmich.xyz'
+]
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
