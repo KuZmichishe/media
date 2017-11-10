@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'films.apps.FilmsConfig',
     'cron_jobs.apps.CronJobsConfig',
     'tvshows.apps.TvshowsConfig',
-    'django_cron',
+#    'django_cron',
 ]
 
 MIDDLEWARE = [
