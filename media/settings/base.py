@@ -23,9 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-wy)uv*6i5$fbck5fu&cwkz5(1y(a3vyxax-aw4rr8s^j%-_8m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,7 +37,6 @@ INSTALLED_APPS = [
     'films.apps.FilmsConfig',
     'cron_jobs.apps.CronJobsConfig',
     'tvshows.apps.TvshowsConfig',
-#    'django_cron',
 ]
 
 MIDDLEWARE = [
@@ -72,21 +68,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'media.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'media',
-        'USER': 'root',
-        'PASSWORD': 'KIds528yes',
-        'HOST': '',
-        'PORT': '',
-    }
-}
 
 
 # Password validation
