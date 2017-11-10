@@ -6,9 +6,7 @@ from django.conf import settings
 import helper as Cron
 from films.models import Film, Genre
 from tvshows.models import Show, Season, Episode
-from datetime import datetime
 import os
-import errno
 
 
 def register_files(request):
