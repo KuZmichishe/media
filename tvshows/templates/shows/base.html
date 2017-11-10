@@ -7,11 +7,11 @@
     <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy" />
-    <link rel="stylesheet" type="text/css" href="{% static 'films/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'shows/style.css' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <script src="{% static 'films/js/main.js' %}"></script>
+    <script src="{% static 'shows/js/main.js' %}"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -31,9 +31,9 @@
         <div class="collapse navbar-collapse" id="topNavBar">
             <ul class="nav navbar-nav">
                 <li class="{% block films_active %}{% endblock %}"><a href="{% url 'films:index' %}"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp; Films</a></li>
-                <li class="{% block songs_active %}{% endblock %}"><a href="{% url 'tvshows:index' %}"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp; TV shows</a></li>
+                <li class="{% block shows_active %}{% endblock %}"><a href="{% url 'tvshows:index' %}"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp; TV shows</a></li>
             </ul>
-            <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'films:index' %}">
+            <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'tvshows:index' %}">
                 <div class="form-group">
                     <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
                 </div>

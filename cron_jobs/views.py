@@ -5,8 +5,10 @@ from django.http import JsonResponse
 from django.conf import settings
 import helper as Cron
 from films.models import Film, Genre
+from tvshows.models import Show, Season, Episode
 from datetime import datetime
 import os
+import errno
 
 
 def register_files(request):
@@ -23,6 +25,33 @@ def register_files(request):
                 os.rename(
                     settings.DOWNLOADS_ROOT + item['file_name'],
                     settings.FILMS_ROOT + item['file_name']
+                )
+            except Exception as e:
+                raise e
+        else:
+            show, created = Show.objects.get_or_create(title=item['show'])
+            link = settings.SHOWS_ROOT + item['show']
+            if created:
+                os.makedirs(link)
+
+            season, created = Season.objects.get_or_create(title=item['season'], show=show)
+            link += '/Season' + str(item['season'])
+            if created:
+                os.makedirs(link)
+
+            episode = Episode(
+                title=item['title'],
+                season=season,
+                file_name=item['file_name'],
+                file_extension=item['file_extension'],
+                file_size=item['file_size'],
+            )
+
+            try:
+                episode.save()
+                os.rename(
+                    settings.DOWNLOADS_ROOT + item['file_name'],
+                    link + '/' + item['file_name']
                 )
             except Exception as e:
                 print e

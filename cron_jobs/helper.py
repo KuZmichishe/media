@@ -8,12 +8,22 @@ import requests
 
 def files_to_array(dirpath):
     filesList = []
-    for dirpath, dirnames, filenames in os.walk("."):
+    for dirpath, dirnames, filenames in os.walk(dirpath):
         for filename in [f for f in filenames if f.endswith(tuple(settings.MEDIA_EXTENSIONS))]:
             info = PTN.parse(filename)
 
             if 'episode' in info.keys():
                 type = 'tv'
+                filesList.append({
+                    'title': filename,
+                    'show': info['title'],
+                    'season': info['season'],
+                    'episode': info['episode'],
+                    'file_name': filename,
+                    'file_extension': info['container'],
+                    'file_size': sizify(os.path.getsize(os.path.join(dirpath, filename))),
+                    'type': type,
+                })
             else:
                 type = 'movie'
                 filesList.append({
