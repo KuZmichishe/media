@@ -21,3 +21,8 @@ DATABASES = {
 INSTALLED_APPS += (
     'django_cron',
 )
+
+MEDIA_ROOT = 'multimedia/'
+DOWNLOADS_ROOT = MEDIA_ROOT + 'downloads/'
+FILMS_ROOT = MEDIA_ROOT + 'films/'
+SHOWS_ROOT = MEDIA_ROOT + 'shows/'

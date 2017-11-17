@@ -108,17 +108,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-MEDIA_ROOT = 'multimedia/'
 MEDIA_EXTENSIONS = [
     '.avi',
     '.mkv',
     '.mp4',
 ]
 
-DOWNLOADS_ROOT = MEDIA_ROOT + 'downloads/'
-FILMS_ROOT = MEDIA_ROOT + 'films/'
-SHOWS_ROOT = MEDIA_ROOT + 'shows/'
 NO_IMAGE_FAKE = 'http://colorexpert.co.th/wp-content/themes/maggie-lite/images/no-image-small.jpg'
 
 # MovieDB 3rd party service options

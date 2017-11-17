@@ -19,3 +19,8 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+MEDIA_ROOT = '/mnt/Files/'
+DOWNLOADS_ROOT = MEDIA_ROOT + 'downloads/'
+FILMS_ROOT = MEDIA_ROOT + 'Video/Films/'
+SHOWS_ROOT = MEDIA_ROOT + 'Video/Serials/'
