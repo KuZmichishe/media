@@ -22,7 +22,7 @@ def files_to_array(dirpath):
                     'file_name': filename,
                     'file_extension': info['container'],
                     'file_size': sizify(os.path.getsize(os.path.join(dirpath, filename))),
-                    'file_dir': dirpath,
+                    'file_path': os.path.join(dirpath, filename),
                     'type': type,
                 })
             else:
@@ -32,7 +32,7 @@ def files_to_array(dirpath):
                     'file_name': filename,
                     'file_extension': info['container'],
                     'file_size': sizify(os.path.getsize(os.path.join(dirpath, filename))),
-                    'file_dir': dirpath,
+                    'file_path': os.path.join(dirpath, filename),
                     'type': type,
                 })
     return filesList
