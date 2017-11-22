@@ -11,9 +11,6 @@ import os
 
 def register_files(request):
     for item in Cron.files_to_array(settings.DOWNLOADS_ROOT):
-        return JsonResponse({
-            'sucess': item
-        })
         if item['type'] == 'movie':
             film = Film(
                 title=item['title'],
@@ -24,7 +21,7 @@ def register_files(request):
             try:
                 film.save()
                 os.rename(
-                    settings.DOWNLOADS_ROOT + item['file_name'],
+                    item['file_dir'] + '/' + item['file_name'],
                     settings.FILMS_ROOT + item['file_name']
                 )
             except Exception as e:
@@ -51,7 +48,7 @@ def register_files(request):
             try:
                 episode.save()
                 os.rename(
-                    settings.DOWNLOADS_ROOT + item['file_name'],
+                    item['file_dir'] + '/' + item['file_name'],
                     link + '/' + item['file_name']
                 )
             except Exception as e:
