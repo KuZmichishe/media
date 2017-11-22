@@ -8,8 +8,9 @@ import requests
 
 def files_to_array(dirpath):
     filesList = []
+    exclude = ['.AppleDouble', '.Thumbs']
     for dirpath, dirnames, filenames in os.walk(dirpath):
-        for filename in [f for f in filenames if f.endswith(tuple(settings.MEDIA_EXTENSIONS))]:
+        for filename in [f for f in filenames if (f.endswith(tuple(settings.MEDIA_EXTENSIONS)) and (f not in exclude))]:
             info = PTN.parse(filename)
 
             if 'episode' in info.keys():
