@@ -24,7 +24,7 @@ def register_files(request):
             try:
                 film.save()
                 os.rename(
-                    item['file_path']
+                    item['file_path'],
                     settings.FILMS_ROOT + item['file_name']
                 )
             except Exception as e:
