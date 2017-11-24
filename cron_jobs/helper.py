@@ -1,16 +1,16 @@
 from django.conf import settings
 
 import os
-import os.path
 import PTN
 import requests
+from django.http import JsonResponse
 
 
 def files_to_array(dirpath):
     filesList = []
-    exclude = ['.AppleDouble', '.Thumbs']
-    for dirpath, dirnames, filenames in os.walk(dirpath):
-        for filename in [f for f in filenames if (f.endswith(tuple(settings.MEDIA_EXTENSIONS)) and (f not in exclude))]:
+    for dirpath, dirnames, filenames in os.walk(dirpath, topdown=True):
+        dirnames[:] = [d for d in dirnames if d not in settings.EXCLUDED_FOLDERS]
+        for filename in [f for f in filenames if f.endswith(tuple(settings.MEDIA_EXTENSIONS))]:
             info = PTN.parse(filename)
 
             if 'episode' in info.keys():

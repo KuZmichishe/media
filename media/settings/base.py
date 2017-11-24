@@ -108,6 +108,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+EXCLUDED_FOLDERS = [
+    '.Thumbs',
+    '.AppleDouble'
+]
+
 MEDIA_EXTENSIONS = [
     '.avi',
     '.mkv',
