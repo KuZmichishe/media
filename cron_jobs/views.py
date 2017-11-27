@@ -11,9 +11,6 @@ import os
 
 def register_files(request):
     for item in Cron.files_to_array(settings.DOWNLOADS_ROOT):
-        return JsonResponse({
-            'sucess': item
-        })
         if item['type'] == 'movie':
             film = Film(
                 title=item['title'],

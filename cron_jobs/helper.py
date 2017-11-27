@@ -12,7 +12,6 @@ def files_to_array(dirpath):
         dirnames[:] = [d for d in dirnames if d not in settings.EXCLUDED_FOLDERS]
         for filename in [f for f in filenames if f.endswith(tuple(settings.MEDIA_EXTENSIONS))]:
             info = PTN.parse(filename)
-            return info
             if 'episode' in info.keys():
                 type = 'tv'
                 filesList.append({
