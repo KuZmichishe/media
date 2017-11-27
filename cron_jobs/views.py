@@ -10,10 +10,7 @@ import os
 
 
 def register_files(request):
-    amount = [
-        'movies': 0,
-        'shows': 0,
-    ]
+    amount = {'movies': 0, 'shows': 0}
     for item in Cron.files_to_array(settings.DOWNLOADS_ROOT):
         if item['type'] == 'movie':
             film = Film(
