@@ -10,6 +10,10 @@ import os
 
 
 def register_files(request):
+    amount = [
+        'movies': 0,
+        'shows': 0,
+    ]
     for item in Cron.files_to_array(settings.DOWNLOADS_ROOT):
         if item['type'] == 'movie':
             film = Film(
@@ -24,6 +28,7 @@ def register_files(request):
                     item['file_path'],
                     settings.FILMS_ROOT + item['file_name']
                 )
+                amount['movies'] += 1
             except Exception as e:
                 raise e
         else:
@@ -51,10 +56,11 @@ def register_files(request):
                     item['file_path'],
                     link + '/' + item['file_name']
                 )
+                amount['shows'] += 1
             except Exception as e:
                 print e
     return JsonResponse({
-        'success': True
+        'success': amount
     })
 
 
