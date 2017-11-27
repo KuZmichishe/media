@@ -117,7 +117,7 @@ MEDIA_EXTENSIONS = [
     '.avi',
     '.mkv',
     '.mp4',
-    '.m4v',
+#    '.m4v',
 ]
 
 NO_IMAGE_FAKE = 'http://colorexpert.co.th/wp-content/themes/maggie-lite/images/no-image-small.jpg'
