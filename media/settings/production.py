@@ -1,6 +1,6 @@
 from media.settings.base import *
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'kuzmich.xyz'
