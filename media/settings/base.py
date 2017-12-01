@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'films.apps.FilmsConfig',
     'cron_jobs.apps.CronJobsConfig',
     'tvshows.apps.TvshowsConfig',
-    'configurations.Configuration',
 ]
 
 MIDDLEWARE = [
