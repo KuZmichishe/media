@@ -3,7 +3,7 @@ from media.settings.base import *
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'kuzmich.xyz'
+    'media.kuzmich.xyz'
 ]
 
 # Database

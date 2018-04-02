@@ -2,7 +2,6 @@
 # launcher.sh
 # navigate to home directory, then to this directory, then execute python script, then back home
 
-cd /
-cd home/pi/python/media/
-sudo python manage.py runserver 0.0.0.0:80
+cd "$(dirname "$0")"
+sudo python manage.py runserver 0.0.0.0:8000 --settings=media.settings.production
 cd /
