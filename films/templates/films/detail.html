@@ -45,7 +45,7 @@
                             <td class="float-right">{{ film.file_size }}</td>
                         </tr>
                     </table>
-                    <a href="{% url 'films:download' film.id %}" target="_blank" class="btn btn-danger btn-sm" role="button">Download</a>
+                    <a href="{{ path_to_file }}" target="_blank" class="btn btn-danger btn-sm" role="button">Download</a>
                 </div>
             </div>
         </div>
