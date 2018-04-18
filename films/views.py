@@ -26,7 +26,6 @@ def detail(request, film_id):
     film = get_object_or_404(Film, pk=film_id)
     poster_domain = settings.MOVIEDB_IMAGE_PATH + settings.MOVIEDB_POSTER_SIZE
     background_domain = settings.MOVIEDB_IMAGE_PATH + settings.MOVIEDB_BACKGROUND_SIZE
-    path_to_file = settings.FILMS_URL + film.file_name
     return render(
         request,
         'films/detail.html',
@@ -34,8 +33,11 @@ def detail(request, film_id):
             'film': film,
             'poster_domain': poster_domain,
             'background_domain': background_domain,
-            'path_to_file': path_to_file,
         })
+
+
+def edit(request, film_id):
+    film = get_object_or_404(Film, pk=film_id)
 
 
 def download_film(request, film_id):

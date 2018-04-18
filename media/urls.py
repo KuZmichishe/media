@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^films/', include('films.urls')),
+    url(r'^/', include('films.urls')),
     url(r'^tvshows/', include('tvshows.urls')),
     url(r'^cron_jobs/', include('cron_jobs.urls')),
 ]
