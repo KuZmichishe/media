@@ -46,5 +46,5 @@ def download_film(request, film_id):
 
     response = HttpResponse(content_type='application/force-download')
     response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(film.file_name)
-    response['X-Sendfile'] = smart_str(path_to_file)
+    response['X-Sendfile'] = '/mnt/Files/Video/Films/' + smart_str(film.file_name)
     return response
