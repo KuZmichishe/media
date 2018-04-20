@@ -19,12 +19,14 @@ def index(request):
     else:
         page = 1
     films = paginator.page(page)
+    r = range(1, films.paginator.num_pages+1)
 
     return render(
         request,
         'films/index.html',
         {
             'films': films,
+            'range': r,
             'poster_domain': poster_domain,
             'no_image': settings.NO_IMAGE_FAKE
         }
