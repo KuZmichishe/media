@@ -6,11 +6,20 @@ from .models import Film
 from django.conf import settings
 from django.utils.encoding import smart_str
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 
 
 def index(request):
-    films = Film.objects.all()
+    films_list = Film.objects.all()
     poster_domain = settings.MOVIEDB_IMAGE_PATH + settings.MOVIEDB_POSTER_SIZE
+
+    paginator = Paginator(films_list, settings.LIST_LIMIT)
+    if request.GET.get('page'):
+        page = request.GET.get('page')
+    else:
+        page = 1
+    films = paginator.page(page)
+
     return render(
         request,
         'films/index.html',
@@ -46,5 +55,5 @@ def download_film(request, film_id):
 
     response = HttpResponse(content_type='application/force-download')
     response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(film.file_name)
-    response['X-Sendfile'] = '/mnt/Files/Video/Films/' + smart_str(film.file_name)
+    response['X-Sendfile'] = path_to_file + smart_str(film.file_name)
     return response

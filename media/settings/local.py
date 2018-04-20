@@ -32,3 +32,5 @@ FILMS_URL = '/multimedia/films/'
 
 SHOWS_ROOT = MEDIA_ROOT + 'shows/'
 SHOWS_URL = '/multimedia/shows/'
+
+LIST_LIMIT = 5

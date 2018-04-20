@@ -32,6 +32,23 @@
                 </div>
                 {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
             {% endfor %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if films.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ films.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ films.number }} of {{ films.paginator.num_pages }}.
+                    </span>
+
+                    {% if films.has_next %}
+                        <a href="?page={{ films.next_page_number }}">next</a>
+                        <a href="?page={{ filmss.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
         {% else %}
             <div class="col-sm-12">
                 <br>
