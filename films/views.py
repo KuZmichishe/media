@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 
 
 def index(request):
-    films_list = Film.objects.all()
+    films_list = Film.objects.all().order_by('-created_at')
     poster_domain = settings.MOVIEDB_IMAGE_PATH + settings.MOVIEDB_POSTER_SIZE
 
     paginator = Paginator(films_list, settings.LIST_LIMIT)
